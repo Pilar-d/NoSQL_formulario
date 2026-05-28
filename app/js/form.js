@@ -99,7 +99,6 @@ function validarRut(rut) {
     return expresionRut.test(rut);
 }
 
-
 function validarEmail(email) {
     const expresionEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return expresionEmail.test(email);

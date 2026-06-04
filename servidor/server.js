@@ -27,7 +27,8 @@ const usuario = new mongoose.Schema({
 
 const Usuario = mongoose.model('Usuario', usuario, 'usuarios');
 
-app.post('guardarUsuario', async (req, res) => {
+// crear el ENDPOINT para guardar un usuario en la base de datos
+app.post('/guardarUsuario', async (req, res) => {
     try {
         const { nombre, rut, email, fechaNacimiento, password } = req.body;
         const nuevoUsuario = new Usuario({ nombre, rut, email, fechaNacimiento, password });

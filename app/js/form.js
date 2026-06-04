@@ -87,6 +87,21 @@ function validarFormulario() {
 
     if (formularioValido){
         alert("Formulario enviado correctamente, enviando correctamente...");
+        const formulario = document.getElementById('formularioRegistro');
+        const dataForm = new FormData(formulario);
+        const datos = Object.fromEntries(dataForm.entries());
+
+        let  respuesta = async () => {
+            await fetch('http://localhost:3000/guardarUsuario',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:{
+                    body: JSON.stringify(datos)
+                }
+            }).then(res => alert("res.text()")).catch();
+        } 
     } else {
         alert("Formulario no es válido, por favor revise los campos resaltados en rojo");
     }
